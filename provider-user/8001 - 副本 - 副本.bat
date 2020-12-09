@@ -1,0 +1,1 @@
+java -jar microservice-provider-user-1.0-SNAPSHOT.jar --server.port=8004 --spring.application.name=provider-user
