@@ -1,5 +1,4 @@
-server:
-  port: 8010
+
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -12,19 +11,7 @@ spring:
       ddl-auto: none
     show-sql: true
   application:
-    name: eureka-consumer-movie
-logging:
-  level:
-    root: info
-    #feign的logger.level只对debug级别日志作出响应
-    com.df.client.UserClient: debug
-info:
-  app:
-    name: @project.artifactId@
-    encoding: @project.build.sourceEncoding@
-    java:
-      source: @java.version@
-      target: @java.version@
+    name: eureka-provider-user
 eureka:
   instance:
     #将自己ip注册到eureka server上
@@ -32,3 +19,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8000
+
+logging:
+  level:
+    root: info
+info:
+  app:
+    name: @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+    java:
+      source: @java.version@
+      target: @java.version@

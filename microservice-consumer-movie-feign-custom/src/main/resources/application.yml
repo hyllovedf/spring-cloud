@@ -16,8 +16,6 @@ spring:
 logging:
   level:
     root: info
-    #feign的logger.level只对debug级别日志作出响应
-    com.df.client.UserClient: debug
 info:
   app:
     name: @project.artifactId@
