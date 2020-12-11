@@ -1,0 +1,16 @@
+server:
+  port: 8031
+spring:
+  application:
+    name: microservice-hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+turbine:
+  #配置需要监控的微服务名称
+  app-config: eureka-consumer-movie, eureka-provider-user, provider-user
+
+  cluster-name-expression: "'default'"

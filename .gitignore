@@ -2,6 +2,10 @@
 /workspace.xml
 /.idea
 /**/.idea
+/**/.mvn
+/**/.gitignore
+/**/mvnw
+/**/mvnw.cmd
 /**/target
 /**/*.iml
 /provider-user/*SNAPSHOT.jar

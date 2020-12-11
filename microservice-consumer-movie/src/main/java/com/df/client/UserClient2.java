@@ -1,6 +1,8 @@
 package com.df.client;
 
 import com.df.config.FeignLogConfiguration;
+import com.df.config.ribbon.FeignNoHystrixConfiguration;
+import com.df.config.ribbon.RibboConfiguration;
 import com.df.entity.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 //@FeignClient(name = "eureka-provider-user", configuration = FeignLogConfiguration.class,fallback =FallbackClient.class )
-@FeignClient(name = "eureka-provider-user", configuration = FeignLogConfiguration.class,fallbackFactory = FallBackFactory.class)
-public interface UserClient {
+@FeignClient(name = "provider-user", configuration = {FeignLogConfiguration.class},fallbackFactory = FallBackFactory2.class)
+public interface UserClient2 {
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     User findById(@PathVariable("id") Long id);

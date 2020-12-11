@@ -1,6 +1,7 @@
 package com.df.controller;
 
 import com.df.client.UserClient;
+import com.df.client.UserClient2;
 import com.df.entity.User;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,8 @@ public class MovieController {
     private RestTemplate restTemplate;
     @Autowired
     private UserClient userClient;
+    @Autowired
+    private UserClient2 userClient2;
 
     @Autowired
     private LoadBalancerClient loadBalancerClient;
@@ -36,10 +39,14 @@ public class MovieController {
 
         return restTemplate.getForObject("http://eureka-provider-user/user/" + id, User.class);
     }
-    @HystrixCommand(fallbackMethod = "fallback")
+//    @HystrixCommand(fallbackMethod = "fallback")
     @GetMapping("feign/{id}")
     public User feignFindById(@PathVariable Long id) {
         return userClient.findById(id);
+    }
+    @GetMapping("feign2/{id}")
+    public User feignFindById2(@PathVariable Long id) {
+        return userClient2.findById(id);
     }
 
     public User fallback(Long id) {
