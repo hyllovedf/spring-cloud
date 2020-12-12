@@ -89,8 +89,8 @@ public class MovieController {
 
     @GetMapping("log")
     public void logUserInstance() {
-//        ServiceInstance choose = loadBalancerClient.choose("eureka-provider-user");
-        ServiceInstance choose = loadBalancerClient.choose("provider-user");
+        ServiceInstance choose = loadBalancerClient.choose("eureka-provider-user");
+//        ServiceInstance choose = loadBalancerClient.choose("provider-user");
         log.info("{}:{}:{}", choose.getServiceId(), choose.getHost(), choose.getPort());
     }
 }

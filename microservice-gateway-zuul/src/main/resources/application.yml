@@ -1,0 +1,27 @@
+server:
+  port: 8040
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: microservice-gateway-zuul
+zuul:
+#  prefix: /user
+  routes:
+    eureka-provider-user: /user/**
+  ignored-patterns: /**/2/**
+##    user-route: #任意起名
+##    #      url: http://localhost:8000/
+##    service-id: eureka-provider-user
+##    path: /user/**
+#    #      service-id: eureka-provider-user
+#    eureka-consumer-movie: /movie/**
+#  ignored-services: '*'
+#ribbon:
+#  eureka:
+#    enable: false
+#eureka-provider-user:
+#    ribbon:
+#      listOfServers: http://localhost:8000/,http://localhost:8001/
