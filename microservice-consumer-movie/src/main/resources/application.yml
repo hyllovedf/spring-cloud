@@ -13,6 +13,10 @@ spring:
     show-sql: true
   application:
     name: eureka-consumer-movie
+  http:
+    multipart:
+      max-file-size: 2000Mb
+      max-request-size: 2500mb
 logging:
   level:
     root: info

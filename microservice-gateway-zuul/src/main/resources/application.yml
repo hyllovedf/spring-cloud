@@ -8,11 +8,14 @@ spring:
   application:
     name: microservice-gateway-zuul
 zuul:
-#  prefix: /user
+  servlet-path: /
+  ##  sensitive-headers: Cookie,Set-Cookie
+  #  #  prefix: /user
   routes:
     eureka-provider-user: /user/**
-  ignored-patterns: /**/2/**
-##    user-route: #任意起名
+##      sensitive-headers: Cookie,Set-Cookie
+#  ignored-patterns: /**/2/**
+#    user-route: #浠绘剰璧峰悕
 ##    #      url: http://localhost:8000/
 ##    service-id: eureka-provider-user
 ##    path: /user/**
