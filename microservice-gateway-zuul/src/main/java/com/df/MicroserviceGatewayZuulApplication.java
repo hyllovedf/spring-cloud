@@ -1,8 +1,10 @@
 package com.df;
 
+import com.df.filter.PreRequestFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 /*
@@ -16,4 +18,8 @@ public class MicroserviceGatewayZuulApplication {
         SpringApplication.run(MicroserviceGatewayZuulApplication.class, args);
     }
 
+    @Bean
+    public PreRequestFilter requestFilter() {
+        return new PreRequestFilter();
+    }
 }

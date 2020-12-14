@@ -11,6 +11,7 @@ zuul:
   servlet-path: /
   ##  sensitive-headers: Cookie,Set-Cookie
   #  #  prefix: /user
+  ignored-services:
   routes:
     eureka-provider-user: /user/**
 ##      sensitive-headers: Cookie,Set-Cookie
@@ -21,7 +22,6 @@ zuul:
 ##    path: /user/**
 #    #      service-id: eureka-provider-user
 #    eureka-consumer-movie: /movie/**
-#  ignored-services: '*'
 #ribbon:
 #  eureka:
 #    enable: false
