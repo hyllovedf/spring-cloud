@@ -6,6 +6,6 @@ spring:
     config:
       uri: http://localhost:8090/
       #对应配置文件的profile
-      profile: dev
+#      profile:
       #对应配置文件的{label}
-      label: v2
+      label: master

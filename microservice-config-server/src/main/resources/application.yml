@@ -7,6 +7,19 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/hyllovedf/spring-cloud-config.git
+          #{application}默认是client的spring.application.name
+#          uri: https://github.com/hyllovedf/{application}
+#          uri: https://github.com/hyllovedf/spring-cloud-config
+          #repos中均没有匹配的默认地址
+          uri: https://github.com/hyllovedf/spring-cloud.git
+#          search-paths: bar*,foo
           username: hyllovedf
           password: hyllovedf0808
+          repos:
+            #只匹配名称是 foo 的client
+            foo: https://github.com/hyllovedf/spring-cloud-config
+            microservice-foo:
+              pattern: microservice*  #只匹配名称microservice开头的client
+              uri: https://github.com/hyllovedf/spring-cloud-config
+              search-paths: bar*,foo
+
