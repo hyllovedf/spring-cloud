@@ -39,6 +39,24 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.14</version>
+                <configuration>
+                    <baseImage>java</baseImage>
+                    <imageName>microservice/microservice-discovery-eureka:0.0.1</imageName>
+                    <entryPoint>["java","-jar","${project.build.finalName}.jar"]</entryPoint>
+                    <cmd>["java", "-jar", "$CRUX_OPTS", "$JAVA_OPTS", "-Dpinpoint.applicationName=$PP_PROFILE-${project.artifactId}", "-Dpinpoint.agentId=$RANDOM-$RANDOM-$RANDOM", "/app/${project.build.finalName}.jar"]</cmd>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

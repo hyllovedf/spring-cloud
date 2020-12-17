@@ -17,7 +17,8 @@ public class UserController {
     @Autowired
     private UserService userService;
     @GetMapping("{id}")
-    public User findById(@PathVariable Long id) {
+    public User findById(@PathVariable Long id) throws InterruptedException {
+        Thread.sleep(1000);
         return userService.findById(id);
     }
     @GetMapping("param")

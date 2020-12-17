@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 //@FeignClient(name = "eureka-provider-user", configuration = FeignLogConfiguration.class,fallback =FallbackClient.class )
-@FeignClient(name = "provider-user", configuration = {FeignLogConfiguration.class},fallbackFactory = FallBackFactory2.class)
+@FeignClient(name = "provider-user", path = "user",configuration = {FeignLogConfiguration.class},fallbackFactory = FallBackFactory2.class)
 public interface UserClient2 {
 
-    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     User findById(@PathVariable("id") Long id);
 
-    @RequestMapping(value = "user/param", method = RequestMethod.GET)
+    @RequestMapping(value = "/param", method = RequestMethod.GET)
     void multiParam(@RequestParam("username") String username, @RequestParam("age") String age,
                     @RequestParam("role") String role);
 
-    @RequestMapping(value = "user/param", method = RequestMethod.GET)
+    @RequestMapping(value = "/param", method = RequestMethod.GET)
     void multiParam2(@RequestParam Map<String, Object> map);
 
-    @RequestMapping(value = "user/post", method = RequestMethod.POST)
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
     void post(@RequestBody User user, @RequestParam("role") String role);
 }

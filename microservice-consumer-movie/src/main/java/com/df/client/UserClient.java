@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 //@FeignClient(name = "eureka-provider-user", configuration = FeignLogConfiguration.class,fallback =FallbackClient.class )
-@FeignClient(name = "eureka-provider-user", configuration = FeignLogConfiguration.class,fallbackFactory = FallBackFactory.class)
+@FeignClient(name = "eureka-provider-user",fallbackFactory = FallBackFactory.class)
 public interface UserClient {
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
