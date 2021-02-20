@@ -10,6 +10,11 @@ spring:
 #      profile: dev
       #对应配置文件的{label}
       label: master
+  rabbitmq:
+    host: 192.168.138.128
+    port: 5672
+    username: guest
+    password: guest
 #      discovery:
 #        #true表示使用服务发现组件中的config server  而不是自己配置的uri
 #        enabled: true

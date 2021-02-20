@@ -22,5 +22,12 @@ spring:
             microservice-foo:
               pattern: microservice*  #只匹配名称microservice开头的client
               uri: https://github.com/hyllovedf/spring-cloud-config
-              search-paths: bar*,foo
-
+    bus:
+      trace:
+        enabled: true
+  #              search-paths: bar*,foo
+  rabbitmq:
+    host: 192.168.138.128
+    port: 5672
+    username: guest
+    password: guest

@@ -21,6 +21,10 @@ public class UserController {
         Thread.sleep(1000);
         return userService.findById(id);
     }
+    @GetMapping("add")
+    public User add() throws InterruptedException {
+        return userService.add();
+    }
     @GetMapping("param")
     public void multiParam(@RequestParam String username, @RequestParam String age, @RequestParam String role) {
         log.info("{}:{}:{}", username, age, role);
